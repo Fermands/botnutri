@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BotNutri Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Inter, Arial, sans-serif; background:#0f172a; color:#e2e8f0; margin:0; padding:24px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+    .card { background:#1e293b; border-radius:16px; padding:16px; box-shadow:0 10px 20px rgba(0,0,0,.2); }
+    h1,h2 { margin-top:0; }
+    .big { font-size:32px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <h1>BotNutri Dashboard</h1>
+  <div class="grid">
+    <div class="card">
+      <h2>Today's Calories</h2>
+      <div id="calories" class="big">-</div>
+      <p id="score"></p>
+    </div>
+    <div class="card"><canvas id="weeklyChart"></canvas></div>
+    <div class="card"><canvas id="macroChart"></canvas></div>
+    <div class="card">
+      <h2>Friend Leaderboard</h2>
+      <ol id="friends"></ol>
+    </div>
+  </div>
+  <script>
+    window.BOTNUTRI_CONFIG = { userId: {{ user_id }}, baseUrl: '{{ base_url }}' };
+  </script>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
